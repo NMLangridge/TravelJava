@@ -50,4 +50,8 @@ public class Flight {
         return departureTime;
     }
 
+    public int getAvailableSeats(Plane plane) {
+        return plane.getCapacityFromEnum() - passengers.size();
+    }
+
 }

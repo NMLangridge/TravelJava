@@ -9,6 +9,7 @@ public class FlightTest {
     Flight flight2;
     Flight flight3;
     Passenger passenger1;
+    Passenger passenger2;
     Plane plane1;
 
     @Before
@@ -16,7 +17,8 @@ public class FlightTest {
         flight1 = new Flight("FN123", "STN", "GLA", "09:00");
         flight2 = new Flight("FN456", "YYZ", "EDI", "12:00");
         flight3 = new Flight("FN789", "SXF", "LGW", "18:00");
-        passenger1 = new Passenger("Samuel", 2);
+        passenger1 = new Passenger("Jack", 2);
+        passenger2 = new Passenger("Jill",2);
         plane1 = new Plane(PlaneType.AIRBUSA340);
     }
 
@@ -55,6 +57,14 @@ public class FlightTest {
     @Test
     public void flightHasDepartureTime() {
         assertEquals("09:00", flight1.getDepartureTime());
+    }
+
+    @Test
+    public void getAvailableSeats() {
+        flight1.addPlane(plane1);
+        flight1.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        assertEquals(28, flight1.getAvailableSeats(plane1));
     }
 
 }
