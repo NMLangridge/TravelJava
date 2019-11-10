@@ -1,5 +1,6 @@
 public enum PlaneType {
 
+    AIRBUSA300(0,0),
     AIRBUSA320(10, 100),
     AIRBUSA330(20, 200),
     AIRBUSA340(30, 300),

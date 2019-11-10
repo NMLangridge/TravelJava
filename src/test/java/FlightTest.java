@@ -11,6 +11,7 @@ public class FlightTest {
     Passenger passenger1;
     Passenger passenger2;
     Plane plane1;
+    Plane plane2;
 
     @Before
     public void before() {
@@ -20,6 +21,7 @@ public class FlightTest {
         passenger1 = new Passenger("Jack", 2);
         passenger2 = new Passenger("Jill",2);
         plane1 = new Plane(PlaneType.AIRBUSA340);
+        plane2 = new Plane(PlaneType.AIRBUSA300);
     }
 
     @Test
@@ -65,6 +67,12 @@ public class FlightTest {
         flight1.addPassenger(passenger1);
         flight1.addPassenger(passenger2);
         assertEquals(28, flight1.getAvailableSeats(plane1));
+    }
+
+    @Test
+    public void bookPassengerIfSeatsAvailable() {
+        flight1.bookPassengerIfSeatsAvailable(plane2, passenger1);
+        assertEquals(0, flight1.getPassengers().size());
     }
 
 }

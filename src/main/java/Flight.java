@@ -54,4 +54,8 @@ public class Flight {
         return plane.getCapacityFromEnum() - passengers.size();
     }
 
+    public void bookPassengerIfSeatsAvailable(Plane plane, Passenger passenger) {
+        if (getAvailableSeats(plane) > 0) addPassenger(passenger);
+    }
+
 }
